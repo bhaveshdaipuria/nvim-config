@@ -1,6 +1,6 @@
-vim.g.mapleader = '`'
-vim.g.maplocalleader = ','
-require('config.lazy')
+vim.g.mapleader = "`"
+vim.g.maplocalleader = ","
+require("config.lazy")
 
 -- Basic settings
 vim.opt.updatetime = 100
@@ -10,12 +10,11 @@ vim.opt_local.shiftwidth = 2
 vim.opt_local.tabstop = 2
 vim.opt_local.softtabstop = 2
 vim.opt_local.expandtab = true
-vim.opt.mouse =
-vim.cmd("set nrformats+=alpha")
+vim.opt.mouse = vim.cmd("set nrformats+=alpha")
 
-vim.api.nvim_create_autocmd('VimEnter', {
-  pattern = "*",
-  callback = function ()
-  vim.cmd("Neotree filesystem reveal left")
-  end
+vim.api.nvim_create_autocmd("VimEnter", {
+	pattern = "*",
+	callback = function()
+		vim.cmd("Neotree filesystem reveal left")
+	end,
 })
