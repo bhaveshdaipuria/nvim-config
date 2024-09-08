@@ -1,5 +1,6 @@
 vim.g.mapleader = "`"
 vim.g.maplocalleader = ","
+vim.opt.termguicolors = true
 require("config.lazy")
 
 -- Basic settings
@@ -18,3 +19,13 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		vim.cmd("Neotree filesystem reveal left")
 	end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	callback = function()
+		vim.lsp.buf.format()
+	end,
+})
+
+vim.api.nvim_create_user_command("RunNode", function()
+	vim.cmd("!node %")
+end, {})
