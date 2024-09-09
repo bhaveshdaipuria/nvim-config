@@ -12,6 +12,7 @@ vim.opt_local.tabstop = 2
 vim.opt_local.softtabstop = 2
 vim.opt_local.expandtab = true
 vim.opt.mouse = vim.cmd("set nrformats+=alpha")
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	pattern = "*",
@@ -28,4 +29,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 vim.api.nvim_create_user_command("RunNode", function()
 	vim.cmd("!node %")
+end, {})
+
+vim.api.nvim_create_user_command("TsNode", function()
+	vim.cmd("!ts-node %")
 end, {})
