@@ -11,7 +11,7 @@ return {
 		name = "mason-lsp",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "tsserver" },
+				ensure_installed = { "lua_ls", "ts_ls" },
 			})
 		end,
 	},
@@ -35,7 +35,7 @@ return {
 					vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, opts)
 					vim.keymap.set("n", "]g", vim.diagnostic.goto_next, opts)
 					vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-					vim.keymap.set("n", "<space>c", vim.lsp.buf.code_action, opts)
+					vim.keymap.set("n", "<leader>re", vim.lsp.buf.code_action, opts)
 				end,
 			})
 		end,

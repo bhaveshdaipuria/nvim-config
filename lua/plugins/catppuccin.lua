@@ -9,9 +9,9 @@ return {
 				light = "latte",
 				dark = "mocha",
 			},
-      no_italic = false,
+			no_italic = false,
 			transparent_background = true,
 		})
-		vim.cmd("colorscheme catppuccin")
+		-- vim.cmd("colorscheme catppuccin")
 	end,
 }
