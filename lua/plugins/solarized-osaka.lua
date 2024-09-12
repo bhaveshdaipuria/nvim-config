@@ -4,7 +4,7 @@ return {
 	priority = 1000,
 	config = function()
 		require("solarized-osaka").setup({
-			transparent = false,
+			transparent = true,
 			lualine_bold = true,
 		})
 		vim.cmd("set background=dark")

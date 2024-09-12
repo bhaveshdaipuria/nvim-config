@@ -2,6 +2,7 @@ vim.g.mapleader = "`"
 vim.g.maplocalleader = ","
 vim.opt.termguicolors = true
 require("config.lazy")
+require("keymappings")
 
 -- Basic settings
 vim.opt.updatetime = 100
@@ -12,7 +13,6 @@ vim.opt_local.tabstop = 2
 vim.opt_local.softtabstop = 2
 vim.opt_local.expandtab = true
 vim.opt.mouse = vim.cmd("set nrformats+=alpha")
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	pattern = "*",
