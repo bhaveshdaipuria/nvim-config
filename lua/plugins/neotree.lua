@@ -11,7 +11,7 @@ return {
 		vim.cmd("highlight NeotreeNormalNC guibg=NONE")
 
 		vim.keymap.set("n", "<leader>nn", ":Neotree filesystem reveal left<CR>", { silent = true, noremap = true })
-		vim.keymap.set("n", "<leader>ng", ":Neotree git_status<CR>", { silent = true, noremap = true })
+		vim.keymap.set("n", "<leader>ng", ":Neotree float git_status<CR>", { silent = true, noremap = true })
 		vim.keymap.set("n", "<leader>nb", ":Neotree buffers<CR>", { silent = true, noremap = true })
 	end,
 }

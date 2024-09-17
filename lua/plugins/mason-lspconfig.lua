@@ -28,14 +28,14 @@ return {
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 			})
-			local opts = { buffer = bufnr, noremap = true, silent = true }
+			local opts = { buffer = 0, noremap = true, silent = true }
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function()
 					vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, opts)
 					vim.keymap.set("n", "]g", vim.diagnostic.goto_next, opts)
 					vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-					vim.keymap.set("n", "<leader>re", vim.lsp.buf.code_action, opts)
+					vim.keymap.set("n", "<leader>qf", vim.lsp.buf.code_action, opts)
 				end,
 			})
 		end,

@@ -4,7 +4,7 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
 		local builtin = require("telescope.builtin")
-		local opts = { buffer = bufnr, noremap = true, silent = true }
+		local opts = { buffer = 0, noremap = true, silent = true }
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function()
 				vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
