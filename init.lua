@@ -29,6 +29,20 @@ vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>", opts)
 vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<CR>", opts)
 vim.keymap.set("n", "<leader>to", "<cmd>tabonly<CR>", opts)
 
+-- Mappings for quickfix list
+vim.keymap.set("n", "<leader>qq", "<cmd>copen<CR>", opts)
+vim.keymap.set("n", "<C-Right>", "<cmd>cnext<CR>", opts)
+vim.keymap.set("n", "<C-q>", "<cmd>cexpr []<CR>", opts)
+vim.keymap.set("n", "<C-Left>", "<cmd>cprev<CR>", opts)
+vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>", opts)
+
+--Mappings for local list
+vim.keymap.set("n", "<leader>ll", "<cmd>lopen<CR>", { buffer = bufnr, noremap = true, silent = true })
+vim.keymap.set("n", "<M-Right>", "<cmd>lnext<CR>", { buffer = bufnr, noremap = true, silent = true })
+vim.keymap.set("n", "<M-q>", "<cmd>lexpr []<CR>", { buffer = bufnr, noremap = true, silent = true })
+vim.keymap.set("n", "<M-Left>", "<cmd>lprev<CR>", { buffer = bufnr, noremap = true, silent = true })
+vim.keymap.set("n", "<leader>lc", "<cmd>lclose<CR>", { buffer = bufnr, noremap = true, silent = true })
+
 -- Basic settings
 vim.opt.updatetime = 100
 vim.opt.number = true
@@ -38,17 +52,6 @@ vim.opt_local.tabstop = 2
 vim.opt_local.softtabstop = 2
 vim.opt_local.expandtab = true
 vim.opt.mouse = vim.cmd("set nrformats+=alpha")
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-	callback = function()
-		vim.lsp.buf.format()
-	end,
-})
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		vim.cmd("Neotree position=current")
-	end,
-})
 
 vim.api.nvim_create_user_command("RunNode", function()
 	vim.cmd("!node %")
