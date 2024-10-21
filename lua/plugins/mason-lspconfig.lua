@@ -11,7 +11,7 @@ return {
 		name = "mason-lsp",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ts_ls" },
+				ensure_installed = { "lua_ls", "ts_ls", "html" },
 			})
 		end,
 	},
@@ -29,12 +29,12 @@ return {
 						runtime = {
 							-- Tell the language server which version of Lua you're using
 							-- (most likely LuaJIT in the case of Neovim)
-							version = 'LuaJIT',
+							version = "LuaJIT",
 						},
 						diagnostics = {
 							-- Get the language server to recognize the `vim` global
 							globals = {
-								'vim',
+								"vim",
 							},
 						},
 						workspace = {
@@ -51,6 +51,9 @@ return {
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.html.setup({
+				capabilities = capabilities,
+			})
 			local opts = { noremap = true, silent = true }
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function()
@@ -63,8 +66,8 @@ return {
 					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 					vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 					vim.keymap.set("n", "<leader>qf", vim.lsp.buf.code_action, opts)
-					vim.keymap.set('n', '<space>a', vim.diagnostic.setloclist, opts)
-					vim.keymap.set('n', '<space>s', vim.lsp.buf.document_symbol, opts)
+					vim.keymap.set("n", "<space>a", vim.diagnostic.setloclist, opts)
+					vim.keymap.set("n", "<space>s", vim.lsp.buf.document_symbol, opts)
 				end,
 			})
 		end,

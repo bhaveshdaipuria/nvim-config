@@ -46,17 +46,18 @@ vim.keymap.set("n", "<leader>lc", "<cmd>lclose<CR>", { buffer = bufnr, noremap =
 -- Basic settings
 vim.opt.updatetime = 100
 vim.opt.number = true
+vim.opt.mouse = "a"
 vim.opt.relativenumber = true
 vim.opt_local.shiftwidth = 2
 vim.opt_local.tabstop = 2
 vim.opt_local.softtabstop = 2
 vim.opt_local.expandtab = true
-vim.opt.mouse = vim.cmd("set nrformats+=alpha")
+vim.cmd("set nrformats+=alpha")
 
 vim.api.nvim_create_user_command("RunNode", function()
-  vim.cmd("!node %")
+	vim.cmd("!node %")
 end, {})
 
 vim.api.nvim_create_user_command("TsNode", function()
-  vim.cmd("!ts-node %")
+	vim.cmd("!ts-node %")
 end, {})

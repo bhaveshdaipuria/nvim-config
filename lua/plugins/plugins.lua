@@ -1,4 +1,4 @@
 -- Plugin setup
 return {
-  -- Add other plugins here
+	-- Add other plugins here
 }
