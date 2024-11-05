@@ -11,7 +11,7 @@ return {
 		name = "mason-lsp",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ts_ls", "html" },
+				ensure_installed = { "lua_ls", "ts_ls", "html", "cssls", "tailwindcss", "emmet_ls" },
 			})
 		end,
 	},
@@ -22,6 +22,7 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
+			capabilities.textDocument.completion.completionItem.snippetSupport = true
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 				settings = {
@@ -52,6 +53,15 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.html.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.cssls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.emmet_ls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
 			})
 			local opts = { noremap = true, silent = true }
