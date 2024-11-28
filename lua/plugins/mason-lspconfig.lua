@@ -11,7 +11,7 @@ return {
 		name = "mason-lsp",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ts_ls", "html", "cssls", "tailwindcss", "emmet_ls" },
+				ensure_installed = { "lua_ls", "ts_ls", "html", "cssls", "tailwindcss", "emmet_ls", "clangd" },
 			})
 		end,
 	},
@@ -64,6 +64,7 @@ return {
 			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.clangd.setup({ capabilities = capabilities })
 			local opts = { noremap = true, silent = true }
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function()
