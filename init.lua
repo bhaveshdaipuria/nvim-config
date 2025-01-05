@@ -59,9 +59,9 @@ vim.opt_local.expandtab = true
 vim.cmd("set nrformats+=alpha")
 
 vim.api.nvim_create_user_command("RunNode", function()
-	vim.cmd("!node %")
+  vim.cmd("!node %")
 end, {})
 
 vim.api.nvim_create_user_command("TsNode", function()
-	vim.cmd("!ts-node %")
+  vim.cmd("!ts-node %")
 end, {})
