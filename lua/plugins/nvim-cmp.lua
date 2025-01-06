@@ -43,11 +43,47 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"onsails/lspkind-nvim",
+		},
 		config = function()
 			local cmp = require("cmp")
 
 			require("luasnip.loaders.from_vscode").lazy_load()
 			cmp.setup({
+				formatting = {
+					format = require("lspkind").cmp_format({
+						mode = "symbol",
+						symbol_map = {
+							Copilot = "",
+							Text = "󰉿",
+							Method = "󰆧",
+							Function = "󰊕",
+							Constructor = "",
+							Field = "󰜢",
+							Variable = "󰀫",
+							Class = "󰠱",
+							Interface = "",
+							Module = "",
+							Property = "󰜢",
+							Unit = "󰑭",
+							Value = "󰎠",
+							Enum = "",
+							Keyword = "󰌋",
+							Snippet = "",
+							Color = "󰏘",
+							File = "󰈙",
+							Reference = "󰈇",
+							Folder = "󰉋",
+							EnumMember = "",
+							Constant = "󰏿",
+							Struct = "󰙅",
+							Event = "",
+							Operator = "󰆕",
+							TypeParameter = "",
+						},
+					}),
+				},
 				snippet = {
 					expand = function(args)
 						require("luasnip").lsp_expand(args.body)
@@ -73,6 +109,8 @@ return {
 				}),
 			})
 
+			vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+
 			-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 			cmp.setup.cmdline({ "/", "?" }, {
 				mapping = cmp.mapping.preset.cmdline(),
@@ -94,4 +132,3 @@ return {
 		end,
 	},
 }
-
