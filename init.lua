@@ -47,6 +47,14 @@ vim.keymap.set("n", "<leader>lc", "<cmd>lclose<CR>", opts)
 vim.keymap.set("n", "<C-M-Right>", "<cmd>next<CR>", opts)
 vim.keymap.set("n", "<C-M-Left>", "<cmd>prev<CR>", opts)
 
+-- Mappings for github copilot chat
+vim.keymap.set("n", "cct", function()
+	vim.cmd("CopilotChatToggle")
+	vim.cmd("vertical resize 50")
+end, opts)
+vim.keymap.set("n", "ccs", ":CopilotChatStop<CR>", opts)
+vim.keymap.set("n", "ccd", ":CopilotChatReset<CR>", opts)
+
 -- Basic settings
 vim.opt.updatetime = 100
 vim.opt.number = true
@@ -59,9 +67,9 @@ vim.opt_local.expandtab = true
 vim.cmd("set nrformats+=alpha")
 
 vim.api.nvim_create_user_command("RunNode", function()
-  vim.cmd("!node %")
+	vim.cmd("!node %")
 end, {})
 
 vim.api.nvim_create_user_command("TsNode", function()
-  vim.cmd("!ts-node %")
+	vim.cmd("!ts-node %")
 end, {})
