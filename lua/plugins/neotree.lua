@@ -7,6 +7,11 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
+		require("neo-tree").setup({
+			filesystem = {
+				hijack_netrw_behavior = "disabled", -- Prevent auto-opening when using `nvim .`
+			},
+		})
 		vim.cmd("highlight NeotreeNormal guibg=NONE")
 		vim.cmd("highlight NeotreeNormalNC guibg=NONE")
 
