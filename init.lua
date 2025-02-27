@@ -36,24 +36,26 @@ vim.keymap.set("n", "<C-q>", "<cmd>cexpr []<CR>", opts)
 vim.keymap.set("n", "<C-Left>", "<cmd>cprev<CR>", opts)
 vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>", opts)
 
---Mappings for local list
+-- Mappings for local list
 vim.keymap.set("n", "<leader>ll", "<cmd>lopen<CR>", opts)
 vim.keymap.set("n", "<M-Right>", "<cmd>lnext<CR>", opts)
 vim.keymap.set("n", "<M-q>", "<cmd>lexpr []<CR>", opts)
 vim.keymap.set("n", "<M-Left>", "<cmd>lprev<CR>", opts)
 vim.keymap.set("n", "<leader>lc", "<cmd>lclose<CR>", opts)
 
---Mappings for arguements list
+-- Mappings for arguements list
 vim.keymap.set("n", "<C-M-Right>", "<cmd>next<CR>", opts)
 vim.keymap.set("n", "<C-M-Left>", "<cmd>prev<CR>", opts)
 
--- Mappings for github copilot chat
+-- Mappings for copilot
 vim.keymap.set("n", "cct", function()
 	vim.cmd("CopilotChatToggle")
 	vim.cmd("vertical resize 50")
 end, opts)
 vim.keymap.set("n", "ccs", ":CopilotChatStop<CR>", opts)
 vim.keymap.set("n", "ccd", ":CopilotChatReset<CR>", opts)
+vim.keymap.set("n", "<leader>ce", ":Copilot enable<CR>", opts)
+vim.keymap.set("n", "<leader>cd", ":Copilot disable<CR>", opts)
 
 -- Basic settings
 vim.opt.updatetime = 100
