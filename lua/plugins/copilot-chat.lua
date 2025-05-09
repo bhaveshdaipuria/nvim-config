@@ -5,5 +5,7 @@ return {
 		{ "nvim-lua/plenary.nvim", branch = "master" },
 	},
 	build = "make tiktoken",
-	opts = {},
+	opts = {
+		model = "gpt-4o",
+	},
 }
