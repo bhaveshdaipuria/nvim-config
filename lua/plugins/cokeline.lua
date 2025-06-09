@@ -10,12 +10,10 @@ return {
 		cokeline.setup({
 			default_hl = {
 				fg = function(buffer)
-					return buffer.is_focused and get_hex("ColorColumn", "bg") or
-					get_hex("Normal", "fg")
+					return buffer.is_focused and get_hex("ColorColumn", "bg") or get_hex("Normal", "fg")
 				end,
 				bg = function(buffer)
-					return buffer.is_focused and get_hex("Normal", "fg") or
-					get_hex("ColorColumn", "bg")
+					return buffer.is_focused and get_hex("Normal", "fg") or get_hex("ColorColumn", "bg")
 				end,
 			},
 
