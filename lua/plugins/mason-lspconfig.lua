@@ -11,7 +11,7 @@ return {
 		name = "mason-lsp",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ts_ls", "html", "cssls", "tailwindcss", "emmet_ls", "clangd" },
+				ensure_installed = { "lua_ls", "ts_ls", "html", "cssls", "tailwindcss", "emmet_ls", "clangd", "eslint" },
 			})
 		end,
 	},
