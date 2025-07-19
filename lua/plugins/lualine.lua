@@ -4,7 +4,7 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				theme = "monokai-pro-ristretto",
+				theme = "monokai-pro",
 			},
 		})
 	end,
