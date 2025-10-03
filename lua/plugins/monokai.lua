@@ -7,7 +7,7 @@ return {
 			terminal_colors = true,
 			devicons = true
 		})
-		vim.cmd("colorscheme monokai-pro-ristretto")
+		-- vim.cmd("colorscheme monokai-pro-ristretto")
 		-- vim.cmd('set background=dark')
 	end
 }
