@@ -11,7 +11,7 @@ return {
 		name = "mason-lsp",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ts_ls", "html", "cssls", "tailwindcss", "emmet_ls", "clangd", "eslint" },
+				ensure_installed = { "lua_ls", "ts_ls", "html", "cssls", "tailwindcss", "emmet_ls", "clangd", "eslint", "basedpyright" },
 			})
 		end,
 	},
@@ -19,11 +19,11 @@ return {
 		"neovim/nvim-lspconfig",
 		name = "nvim-lspconfig",
 		config = function()
-			local lspconfig = require("lspconfig")
+			-- local lspconfig = require("lspconfig")
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 			capabilities.textDocument.completion.completionItem.snippetSupport = true
-			lspconfig.lua_ls.setup({
+			--[[ lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 				settings = {
 					Lua = {
@@ -64,7 +64,52 @@ return {
 			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.clangd.setup({ capabilities = capabilities })
+			lspconfig.clangd.setup({ capabilities = capabilities }) ]]
+			vim.lsp.config('lua_ls', {
+				capabilities = capabilities,
+				settings = {
+					Lua = {
+						runtime = {
+							-- Tell the language server which version of Lua you're using
+							-- (most likely LuaJIT in the case of Neovim)
+							version = "LuaJIT",
+						},
+						diagnostics = {
+							-- Get the language server to recognize the `vim` global
+							globals = {
+								"vim",
+							},
+						},
+						workspace = {
+							-- Make the server aware of Neovim runtime files
+							library = vim.api.nvim_get_runtime_file("", true),
+						},
+						-- Do not send telemetry data containing a randomized but unique identifier
+						telemetry = {
+							enable = false,
+						},
+					},
+				},
+			})
+			vim.lsp.config('ts_ls', {
+				capabilities = capabilities,
+			})
+			vim.lsp.config('html', {
+				capabilities = capabilities,
+			})
+			vim.lsp.config('cssls', {
+				capabilities = capabilities,
+			})
+			vim.lsp.config('emmet_ls', {
+				capabilities = capabilities,
+			})
+			vim.lsp.config('tailwindcss', {
+				capabilities = capabilities,
+			})
+			vim.lsp.config('clangd', { capabilities = capabilities })
+			vim.lsp.config('basedpyright', {
+				capabilities = capabilities,
+			})
 			local opts = { noremap = true, silent = true }
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function()

@@ -74,6 +74,11 @@ vim.api.nvim_create_user_command("RunNode", function()
 	vim.cmd("!node %")
 end, {})
 
+
+vim.api.nvim_create_user_command("RunPy", function()
+	vim.cmd("!python3 %")
+end, {})
+
 vim.api.nvim_create_user_command("TsNode", function()
 	vim.cmd("!ts-node %")
 end, {})
