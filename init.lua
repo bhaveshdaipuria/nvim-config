@@ -1,6 +1,7 @@
 vim.g.mapleader = "`"
 vim.g.maplocalleader = ","
 vim.opt.termguicolors = true
+vim.opt.autoread = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 require("config.lazy")
@@ -73,7 +74,6 @@ vim.cmd("set nrformats+=alpha")
 vim.api.nvim_create_user_command("RunNode", function()
 	vim.cmd("!node %")
 end, {})
-
 
 vim.api.nvim_create_user_command("RunPy", function()
 	vim.cmd("!python3 %")
