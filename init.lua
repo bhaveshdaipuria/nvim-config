@@ -32,14 +32,14 @@ vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<CR>", opts)
 vim.keymap.set("n", "<leader>to", "<cmd>tabonly<CR>", opts)
 
 -- Mappings for quickfix list
-vim.keymap.set("n", "<leader>qq", "<cmd>copen<CR>", opts)
+vim.keymap.set("n", "<leader>qo", "<cmd>copen<CR>", opts)
 vim.keymap.set("n", "<C-Right>", "<cmd>cnext<CR>", opts)
 vim.keymap.set("n", "<C-q>", "<cmd>cexpr []<CR>", opts)
 vim.keymap.set("n", "<C-Left>", "<cmd>cprev<CR>", opts)
 vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>", opts)
 
 -- Mappings for local list
-vim.keymap.set("n", "<leader>ll", "<cmd>lopen<CR>", opts)
+vim.keymap.set("n", "<leader>lo", "<cmd>lopen<CR>", opts)
 vim.keymap.set("n", "<M-Right>", "<cmd>lnext<CR>", opts)
 vim.keymap.set("n", "<M-q>", "<cmd>lexpr []<CR>", opts)
 vim.keymap.set("n", "<M-Left>", "<cmd>lprev<CR>", opts)
